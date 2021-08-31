@@ -1,0 +1,22 @@
+{
+  "name": "v4ex-api-symbol",
+  "version": "1.0",
+  "description": "V4EX API System: Symbol microservice.",
+  "author": "V4EX Inc. <v4ex-api-symbol@v4ex.com> (https://v4ex.com/)",
+  "contributors": [
+    "Xuwei Li <v4ex-api-symbol@xuwei.li> (https://xuwei.li/)"
+  ],
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
