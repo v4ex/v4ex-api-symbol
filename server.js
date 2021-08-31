@@ -5,7 +5,7 @@ const app = express()
 
 const apiRoutes = require('./routes/api');
  
-app.get('/', (req, res) => {
+app.get('/', function(req, res) {
   res.type('text')
     .send('v4ex-api-symbol')
 })
