@@ -1,12 +1,22 @@
-const { Symbol } = require('../components/symbol')
+const { Symbol } = require('../models/symbol')
+const parseSymbolObjectId = require('../lib/parse-symbol-object-id')
 
 module.exports = app => {
   app.route('/api/symbol/:symbol')
-    .get(function(req, res) {
-      Symbol.find({
-        code: req.params.symbol
-      }, (err, symbols) => {
-        res.json(symbols)
+    .get(async function(req, res) {
+      const _id = await parseSymbolObjectId(req.params.symbol)
+
+      Symbol.findById(_id, function(err, symbol) {
+        if (err) {
+          console.error(err)
+          if (err.name === 'CastError' && err.kind === 'ObjectId') {
+            return res.json({
+              status: 404,
+              error: 'Not Found'
+            })
+          }
+        }
+        res.json(symbol)
       })
     })
 
@@ -15,7 +25,7 @@ module.exports = app => {
       Symbol.findOne({
         exchange: req.params.exchange,
         code: req.params.code,
-      }, (err, symbol) => {
+      }, function(err, symbol) {
         res.json(symbol)
       })
     })

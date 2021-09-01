@@ -1,4 +1,4 @@
-const mongoose = require('../mongoose')
+const { mongoose } = require('v4ex-api-core')
 
 const Schema = mongoose.Schema
 
@@ -10,5 +10,6 @@ const SymbolSchema = new Schema({
 const Symbol = mongoose.model('Symbol', SymbolSchema)
 
 module.exports = {
-  Symbol
+  Symbol,
+  SymbolSchema
 }

@@ -1,15 +1,8 @@
 require('dotenv').config()
 
-const express = require('express')
-const app = express()
-
-const apiRoutes = require('./routes/api');
+const app = require('./app')
  
-app.get('/', function(req, res) {
-  res.type('text')
-    .send('v4ex-api-symbol')
+const port = process.env.PORT || 4003
+const server = app.listen(port, function() {
+  console.log('App listening on port %s, in environment %s!', port, (process.env.NODE_ENV || ''))
 })
-
-apiRoutes(app)
- 
-app.listen(process.env.PORT ||  4003)
