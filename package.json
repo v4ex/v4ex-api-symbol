@@ -1,6 +1,6 @@
 {
   "name": "v4ex-api-symbol",
-  "version": "1.1.x",
+  "version": "1.1.0",
   "description": "V4EX API System: Symbol microservice.",
   "repository": "github:v4ex/v4ex-api-symbol",
   "author": "V4EX Inc. <v4ex-api-symbol@v4ex.com> (https://v4ex.com/)",
